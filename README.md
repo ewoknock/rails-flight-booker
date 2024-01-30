@@ -1,24 +1,8 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is part of The Odin Project [curriculum](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Functionality
+Implement complex and nested forms to search and book flights.
+Data for airports is populated from CSV files that are parsed and merged to source and seed the database
+The drop down menus for the search functionality are all populated from the seeded data
