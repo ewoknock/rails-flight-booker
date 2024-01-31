@@ -10,7 +10,7 @@ require './lib/tasks/database_seeder'
 #   end
 
 def seed_airports(airports)
-  Airport.destroy_all
+  Airport.delete_all
   airports.each do |airport|
     Airport.create(
       code: airport[:airport_code],
@@ -23,4 +23,19 @@ def seed_airports(airports)
   end
 end
 
+def seed_flights
+  Flight.delete_all
+  2000.times do
+    airport_ids = (Airport.first.id..Airport.last.id).to_a.shuffle.take(2)
+    departure_time = DateTime.now + rand(7..28).days
+    f = Flight.create(
+      departure_airport_id: airport_ids[0],
+      arrival_airport_id: airport_ids[1],
+      departure_time: departure_time,
+      flight_duration: rand(3600..18000).seconds
+    )
+  end
+end
+
 seed_airports(DatabaseSeeder.collate_airports)
+seed_flights
