@@ -1,0 +1,22 @@
+.search-form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.search-form select{
+    height: 2rem;
+}
+.date-field{
+    height: 1.75rem;
+}
+
+.search-button{
+    grid-column: 4 / 5;
+}

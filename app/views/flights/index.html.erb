@@ -12,13 +12,13 @@
         </div>
         <div class="form-field">
             <%= f.label :departure_time, "Depart Date", class: "field-label" %>
-            <%= f.date_field :departure_time, min: Date.today %>
+            <%= f.date_field :departure_time, min: Date.today, class: "date-field" %>
         </div>
         <div class="form-field">
             <%= f.label :num_passengers, "Passengers", class: "field-label" %>
             <%= f.select :num_passengers, 1..4 %>
         </div>
-        <%= f.submit 'Search' %>
+        <%= f.submit 'Search', class: "search-button" %>
     <% end %>
 
 </div>
