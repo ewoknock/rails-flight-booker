@@ -22,8 +22,12 @@
     <% end %>
 
 </div>
+<% if search_submitted? %>
+    <% @flights.each do |flight| %>
 
-<% @flights.each do |flight| %>
-
-    <%= flight.departure_airport_id %>
+        <%= "Departure airport: #{flight.departure_airport.name}" %>
+        <%= "Arrival airport: #{flight.arrival_airport.name}" %>
+        <%= "Departure Time: #{flight.format_date} #{flight.format_time}" %>
+        <%= "Flight Duration: #{flight.flight_duration/60}" %>
+    <% end %>
 <% end %>

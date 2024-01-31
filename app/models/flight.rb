@@ -5,4 +5,8 @@ class Flight < ApplicationRecord
   def format_date
     departure_time.strftime("%m/%d/%Y")
   end
+
+  def format_time
+    departure_time.strftime("%H:%M")
+  end
 end
