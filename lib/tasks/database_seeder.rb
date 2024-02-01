@@ -3,14 +3,15 @@ require 'csv'
 class DatabaseSeeder
   AIRPORTS = Rails.root.join('db', 'data', 'airports.csv')
   COUNTRY_CODES = YAML.load_file(Rails.root.join('db', 'data', 'country_codes.yml'))
+  TOP50_US_AIRPORTS = YAML.load_file(Rails.root.join('db', 'data', 'top50_US_airports.yml'))
 
   def self.collate_airports
     airport_data = CSV.parse(File.read(AIRPORTS), headers: true)
 
     airports = airport_data.select do |airport|
-      airport['country_id'] == 'US' || airport['country_id'] == 'CA'
+      airport['country_id'] == 'US' && airport['code'].in?(TOP50_US_AIRPORTS['code'])
     end
-    airports.map do |airport|
+    airports = airports.map do |airport|
       country = COUNTRY_CODES.find { |country| country['Code'].downcase == airport['country_id'].downcase }
       {
         airport_code: airport['code'],
