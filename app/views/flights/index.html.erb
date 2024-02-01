@@ -23,11 +23,25 @@
 
 </div>
 <% if search_submitted? %>
+<table>
+    <thead>
+        <tr>
+            <th>Departure airport</th>
+            <th>Arrival Airport</th>
+            <th>Departure Time</th>
+            <th>Flight Duration</th>
+        </tr>
+    </thead>
+    <tbody>
     <% @flights.each do |flight| %>
-
-        <%= "Departure airport: #{flight.departure_airport.name}" %>
-        <%= "Arrival airport: #{flight.arrival_airport.name}" %>
-        <%= "Departure Time: #{flight.format_date} #{flight.format_time}" %>
-        <%= "Flight Duration: #{flight.flight_duration/60}" %>
+        <tr>
+            <td><%= flight.departure_airport.name %></td>
+            <td><%= flight.arrival_airport.name %></td>
+            <td><%= "#{flight.format_date} #{flight.format_time}" %></td>
+            <td><%= Time.at(flight.flight_duration).utc.strftime("%H:%M") %></td>
+        </tr>
     <% end %>
+    </tbody>
+</table>
+
 <% end %>

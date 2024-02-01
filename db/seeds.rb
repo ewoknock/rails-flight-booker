@@ -25,9 +25,9 @@ end
 
 def seed_flights
   Flight.delete_all
-  2000.times do
+  5000.times do
     airport_ids = (Airport.first.id..Airport.last.id).to_a.shuffle.take(2)
-    departure_time = DateTime.now + rand(7..28).days
+    departure_time = DateTime.now + rand(1..10080).minutes
     f = Flight.create(
       departure_airport_id: airport_ids[0],
       arrival_airport_id: airport_ids[1],

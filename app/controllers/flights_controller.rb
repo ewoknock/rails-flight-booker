@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
         departure_airport_id: params[:departure_airport_id],
         arrival_airport_id: params[:arrival_airport_id]).where(
           "DATE(departure_time) == ?", params[:departure_date]
-        )
+        ).order('departure_time')
     end
 
   end
