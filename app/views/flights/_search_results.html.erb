@@ -1,3 +1,8 @@
+<% flight = @flights.first %>
+
+<h2><%= "Depart: #{flight.departure_airport.code} -> #{flight.arrival_airport.code}" %> </h2>
+<p><%= "#{flight.id} #{flight.departure_airport.city}, #{flight.departure_airport.state} - #{flight.departure_airport.code}"%>
+
 <table>
     <thead>
         <tr>

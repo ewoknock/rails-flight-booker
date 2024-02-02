@@ -9,7 +9,7 @@ class DatabaseSeeder
     airport_data = CSV.parse(File.read(AIRPORTS), headers: true)
 
     airports = airport_data.select do |airport|
-      airport['country_id'] == 'US' && airport['code'].in?(TOP50_US_AIRPORTS['code'])
+      airport['country_id'] == 'US' && airport['code'].in?(TOP50_US_AIRPORTS['code']) && airport['city'].nil? == false
     end
     airports = airports.map do |airport|
       country = COUNTRY_CODES.find { |country| country['Code'].downcase == airport['country_id'].downcase }
