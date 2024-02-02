@@ -1,0 +1,21 @@
+<div class="form-container">
+        <%= form_with(url: flights_path, method: :get, class: "search-form") do |f| %>
+        <div class="form-field">
+            <%= f.label :departure_airport_id, 'Depart', class: "field-label" %>
+            <%= f.collection_select(:departure_airport_id, Airport.all.order(:code), :id, :code, {:selected => params[:departure_airport_id], prompt: "" }) %>
+        </div>
+        <div class="form-field">
+            <%= f.label :arrival_airport_id, 'Arrive', class: "field-label" %>
+            <%= f.collection_select(:arrival_airport_id, Airport.all.order(:code), :id, :code, {:selected => params[:arrival_airport_id], prompt: "" }) %>
+        </div>
+        <div class="form-field">
+            <%= f.label :departure_date, "Depart Date", class: "field-label" %>
+            <%= f.date_field :departure_date, min: Date.today, class: "date-field", value: params[:departure_date] || Date.today.strftime("%Y-%m-%d") %>
+        </div>
+        <div class="form-field">
+            <%= f.label :num_passengers, "Passengers", class: "field-label" %>
+            <%= f.select :num_passengers, 1..4 %>
+        </div>
+        <%= f.submit 'Search', class: "search-button" %>
+    <% end %>
+</div>
