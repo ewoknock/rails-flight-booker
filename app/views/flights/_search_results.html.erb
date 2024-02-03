@@ -11,7 +11,7 @@
     <% @flights.each do |flight| %>
         <div class="form-element">
             <div class="form-field">
-                <%= f.radio_button :flight_id, :flight_id %>
+                <%= f.radio_button :flight_id, flight.id %>
                 <%= f.label :flight_id, "#{flight.format_time} -> #{flight.arrival_time}" %>
             </div>
             <div>
