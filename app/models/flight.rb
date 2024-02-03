@@ -9,4 +9,12 @@ class Flight < ApplicationRecord
   def format_time
     departure_time.strftime("%H:%M")
   end
+
+  def arrival_time
+    (departure_time + flight_duration).strftime("%H:%M")
+  end
+
+  def format_duration
+    Time.at(flight_duration).utc.strftime("%Hh %Mm")
+  end
 end

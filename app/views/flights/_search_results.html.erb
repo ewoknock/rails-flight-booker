@@ -5,23 +5,20 @@
 <p><%= "#{departing_airport.city}, #{departing_airport.state} - #{departing_airport.code} 
         to #{arrival_airport.city}, #{arrival_airport.state} - #{arrival_airport.code} "%>
 
-<table>
-    <thead>
-        <tr>
-            <th>Departure airport</th>
-            <th>Arrival Airport</th>
-            <th>Departure Time</th>
-            <th>Flight Duration</th>
-        </tr>
-    </thead>
-    <tbody>
+<h3>Departing Flights</h3>
+<br>
+<%= form_with(url: new_booking_path, method: :get, class: "result-form") do |f| %>
     <% @flights.each do |flight| %>
-        <tr>
-            <td><%= flight.departure_airport.name %></td>
-            <td><%= flight.arrival_airport.name %></td>
-            <td><%= "#{flight.format_date} #{flight.format_time}" %></td>
-            <td><%= Time.at(flight.flight_duration).utc.strftime("%H:%M") %></td>
-        </tr>
+        <div class="form-element">
+            <div class="form-field">
+                <%= f.radio_button :flight_id, :flight_id %>
+                <%= f.label :flight_id, "#{flight.format_time} -> #{flight.arrival_time}" %>
+            </div>
+            <div>
+                <%= flight.format_duration%>
+            </div>
+        </div>
     <% end %>
-    </tbody>
-</table>
+    <%= f.hidden_field :no_of_passengers, value: params[:num_passengers] %>
+    <%= f.submit 'Book', class: "book-button" %>
+<% end %>
