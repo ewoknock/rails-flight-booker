@@ -18,7 +18,8 @@ def seed_airports(airports)
       country_id: airport[:country_id],
       country: airport[:country_name],
       city: airport[:city],
-      state: airport[:state]
+      state: airport[:state],
+      county: airport[:county]
     )
   end
 end

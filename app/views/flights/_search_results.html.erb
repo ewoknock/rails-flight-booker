@@ -1,7 +1,9 @@
-<% flight = @flights.first %>
+<% departing_airport = @flights.first.departure_airport %>
+<% arrival_airport = @flights.first.arrival_airport %>
 
-<h2><%= "Depart: #{flight.departure_airport.code} -> #{flight.arrival_airport.code}" %> </h2>
-<p><%= "#{flight.id} #{flight.departure_airport.city}, #{flight.departure_airport.state} - #{flight.departure_airport.code}"%>
+<h2><%= "Depart: #{departing_airport.code} -> #{arrival_airport.code}" %> </h2>
+<p><%= "#{departing_airport.city}, #{departing_airport.state} - #{departing_airport.code} 
+        to #{arrival_airport.city}, #{arrival_airport.state} - #{arrival_airport.code} "%>
 
 <table>
     <thead>
