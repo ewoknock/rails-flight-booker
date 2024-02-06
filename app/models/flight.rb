@@ -7,11 +7,11 @@ class Flight < ApplicationRecord
   end
 
   def format_time
-    departure_time.strftime("%H:%M")
+    departure_time.strftime("%H:%M %p")
   end
 
   def arrival_time
-    (departure_time + flight_duration).strftime("%H:%M")
+    (departure_time + flight_duration).strftime("%H:%M %p")
   end
 
   def format_duration

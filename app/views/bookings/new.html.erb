@@ -1,1 +1,18 @@
+<div class="booking-flight">
+    <div class="booking-flight header">Flight</div>
+    <div class="booking-flight-info">
+        <div><%= @flight.format_time %></div>
+        <div class="airport">
+            <div class="airport-code"><%= @flight.departure_airport.code %></div>
+            <div class="departure-time"><%= @flight.format_time %></div>
+        </div>
+        <p>-></p>
+        <div class="airport">
+            <div class="airport-code"><%= @flight.arrival_airport.code %></div>
+            <div class="departure-time"><%= @flight.arrival_time %></div>
+        </div>
+        <p><%= @flight.format_duration %></p>  
+    </div>  
+</div>
 <h3><%= @flight.departure_airport.name %></h3>
+<p><%= @booking.no_of_passengers %></p>
