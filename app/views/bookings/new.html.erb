@@ -18,6 +18,8 @@
 <div class="passenger-details">
     <h3>Passenger Details</h3>
     <%= form_with model: @booking do |f| %>
+    <%= f.hidden_field :flight_id, value: @flight.id %>
+    <%= f.hidden_field :no_of_passengers, value: params[:no_of_passengers]%>
         <div class="passenger-form">
             <%= f.fields_for :passengers do |passenger_f| %>
                 <%= passenger_f.hidden_field :id, value: nil %>
