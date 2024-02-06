@@ -41,7 +41,7 @@
     padding: .5rem 1rem;
 }
 
-.passenger-form h4{
+h4{
     margin-top: 1rem;
     margin-bottom: .5em;
 }
@@ -53,4 +53,12 @@
 .confirmation-buttons a{
     text-decoration: none;
     color: blue;
+}
+
+.passenger-info p{
+    margin: 0;
+}
+.passenger-info{
+    display: flex;
+    gap: 2rem;
 }

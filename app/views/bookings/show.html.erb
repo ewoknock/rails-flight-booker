@@ -1,0 +1,26 @@
+<div class="booking-flight">
+    <div class="booking-flight header">Flight</div>
+        <p><%= @flight.format_date %></p>
+        <div class="flight-info">
+            <div class="airport">
+                <div class="airport-code"><%= @flight.departure_airport.code %></div>
+                <div class="departure-time"><%= @flight.format_time %></div>
+            </div>
+            <p>-></p>
+            <div class="airport">
+                <div class="airport-code"><%= @flight.arrival_airport.code %></div>
+                <div class="departure-time"><%= @flight.arrival_time %></div>
+            </div>
+        </div>
+        <p><%= @flight.format_duration %></p>  
+</div>
+
+<div class="passenger-details">
+    <% @booking.passengers.each_with_index do |passenger, index| %>
+        <h4>Details for passenger <%= index + 1 %></h4>
+        <div class="passenger-info">
+            <p><%= "Name: #{passenger.name}" %></p>
+            <p><%= "Email: #{passenger.email}" %></p>
+        </div>
+    <% end; nil %>
+</div>

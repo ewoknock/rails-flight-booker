@@ -6,7 +6,6 @@
         to #{arrival_airport.city}, #{arrival_airport.state} - #{arrival_airport.code} "%>
 
 <h3>Departing Flights</h3>
-<br>
 <%= form_with(url: new_booking_path, method: :get, class: "result-form") do |f| %>
     <% @flights.each do |flight| %>
         <div class="form-element">

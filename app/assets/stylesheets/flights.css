@@ -20,3 +20,15 @@
 .search-button{
     grid-column: 4 / 5;
 }
+
+.form-element{
+    display: flex;
+    gap: 4rem;
+    padding: 1rem 1rem;
+}
+
+.form-field{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
