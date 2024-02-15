@@ -1,4 +1,6 @@
 <div data-passenger-target="passengerInfo" class="passenger-info">
+    <h4 data-passenger-target="passengerHeader">Details for passenger <%= index.to_i + 1 %></h4>
+
     <%= passenger_f.text_field :name, class: "passenger-name", placeholder: "Passenger Name" %>
     <%= passenger_f.text_field :email, class: "passenger-email", placeholder: "Passenger Email" %>
 </div>

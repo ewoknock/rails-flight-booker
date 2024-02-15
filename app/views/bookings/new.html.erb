@@ -17,23 +17,20 @@
 
 <div class="passenger-details">
     <h3>Passenger Details</h3>
-    <%= form_with model: @booking do |f| %>
+    <%= form_with model: @booking, data: { controller: "passenger", passenger_passenger_count_value: params[:no_of_passengers] } do |f| %>
     <%= f.hidden_field :flight_id, value: @flight.id %>
     <%= f.hidden_field :no_of_passengers, value: params[:no_of_passengers]%>
-        <div class="passenger-form">
+        <div data-passenger-target="passengerOutput" class="passenger-form">
             <%= f.fields_for :passengers do |passenger_f| %>
                 <%= passenger_f.hidden_field :id, value: nil %>
-                <h4>Details for passenger <%= passenger_f.index + 1 %></h4>
-                <%= render "passenger", passenger_f: passenger_f %>
+                <%= render partial: "passenger", locals: { passenger_f: passenger_f, index: passenger_f.index } %>
             <% end %>
         </div>
 
         <template data-passenger-target="passengerFields">
-            <div class="passenger-form">
-                <%= f.fields_for :passengers, @booking.passengers.build do |passenger_f| %>
-                    <%= render "passenger", passenger_f: passenger_f %>
-                <% end %>
-            </div>
+            <%= f.fields_for :passengers, @booking.passengers.build, child_index: 'NEW_RECORD' do |passenger_f| %>
+                <%= render partial: "passenger", locals: { passenger_f: passenger_f, index: passenger_f.index } %>
+            <% end %>
         </template>
         <br>
         <button type="button" data-action="click->passenger#add">Add Passenger</button>
